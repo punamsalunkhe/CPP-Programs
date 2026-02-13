@@ -1,0 +1,131 @@
+//create  a c++ program that demonstrates the use of array of objects. 
+//The program should simulate  a simple sudent management system in dev c++. 
+//1).create a class student with the following attributes  name(string) ,roll number(intger),
+//marks(interger array of size 5).2).implement the following member functions in the student class
+// getdetails() ask the user to input the students details name , roll numbers,marks
+
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Student {
+    string name;
+    int rollNumber;
+    int marks[3]; // Example size 3 for marks
+
+public:
+    void getDetails() {
+        cout << "Enter Student Name: ";
+        getline(cin, name);
+
+        cout << "Enter Roll Number: ";
+        cin >> rollNumber;
+
+        cout << "Enter Marks in 3 subjects:\n";
+        for (int i = 0; i < 3; i++) {
+            cout << "Subject " << (i + 1) << ": ";
+            cin >> marks[i];
+        }
+        cin.ignore(); // Clear newline from buffer after marks input
+    }
+
+    void displayDetails() {
+        cout << "\nStudent Name: " << name << endl;
+        cout << "Roll Number: " << rollNumber << endl;
+        cout << "Marks: ";
+        for (int i = 0; i < 3; i++) {
+            cout << marks[i] << " ";
+        }
+        cout << endl;
+    }
+};
+
+int main() {
+    int n;
+    cout << "Enter number of students: ";
+    cin >> n;
+    cin.ignore(); // clear newline before getline for first student's name
+
+    Student students[n]; // Array of student objects
+
+    // Input details for each student
+    for (int i = 0; i < n; i++) {
+        cout << "\nEnter details for student " << (i + 1) << ":\n";
+        students[i].getDetails();
+    }
+
+    // Display details for each student
+    cout << "\nStudent details entered are:\n";
+    for (int i = 0; i < n; i++) {
+        students[i].displayDetails();
+    }
+
+    return 0;
+}
+
+Output:
+
+Enter number of students: 5
+
+Enter details for student 1:
+Enter Student Name: A
+Enter Roll Number: 1
+Enter Marks in 3 subjects:
+Subject 1: 70
+Subject 2: 80
+Subject 3: 85
+
+Enter details for student 2:
+Enter Student Name: B
+Enter Roll Number: 2
+Enter Marks in 3 subjects:
+Subject 1: 58
+Subject 2: 78
+Subject 3: 68
+
+Enter details for student 3:
+Enter Student Name: C
+Enter Roll Number: 3
+Enter Marks in 3 subjects:
+Subject 1: 71
+Subject 2: 75
+Subject 3: 78
+
+Enter details for student 4:
+Enter Student Name: D
+Enter Roll Number: 4
+Enter Marks in 3 subjects:
+Subject 1: 61
+Subject 2: 65
+Subject 3: 68
+
+Enter details for student 5:
+Enter Student Name: 5
+Enter Roll Number: 5
+Enter Marks in 3 subjects:
+Subject 1: 36
+Subject 2: 59
+Subject 3: 59
+
+Student details entered are:
+
+Student Name: A
+Roll Number: 1
+Marks: 70 80 85
+
+Student Name: B
+Roll Number: 2
+Marks: 58 78 68
+
+Student Name: C
+Roll Number: 3
+Marks: 71 75 78
+
+Student Name: D
+Roll Number: 4
+Marks: 61 65 68
+
+Student Name: 5
+Roll Number: 5
+Marks: 36 59 59
