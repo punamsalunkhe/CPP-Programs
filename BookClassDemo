@@ -1,0 +1,87 @@
+//create a c++ program in dev c++ that implements  a book class with the following requirement : 
+//attributes ;title(string),author(string),pages(integer),price(double).add default constructor
+// and parameterized constructor write display method to show the book details .
+//use proper encapsulation and data hiding techniques.use meaningful variable names and 
+//comments to explain the code.
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Book {
+private:
+    string title;
+    string author;
+    int pages;
+    double price;
+
+public:
+    // Default constructor
+    Book() {
+        title = "Untitled";
+        author = "Unknown";
+        pages = 0;
+        price = 0.0;
+    }
+
+    // Parameterized constructor
+    Book(string t, string a, int p, double pr) {
+        title = t;
+        author = a;
+        pages = p;
+        price = pr;
+    }
+
+    // Display method to show book details
+    void display() const {
+        cout << "\nBook Details:" << endl;
+        cout << "Title : " << title << endl;
+        cout << "Author: " << author << endl;
+        cout << "Pages : " << pages << endl;
+        cout << "Price : $" << price << endl;
+    }
+
+    // Getter and Setter methods for encapsulation (optional)
+    void setTitle(const string& t) { title = t; }
+    string getTitle() const { return title; }
+
+    void setAuthor(const string& a) { author = a; }
+    string getAuthor() const { return author; }
+
+    void setPages(int p) { pages = p; }
+    int getPages() const { return pages; }
+
+    void setPrice(double pr) { price = pr; }
+    double getPrice() const { return price; }
+};
+
+int main() {
+    // Using default constructor
+    Book book1;
+    cout << "Book 1 details with default constructor:";
+    book1.display();
+
+    // Using parameterized constructor
+    Book book2("The C++ Programming Language", "Bjarne Stroustrup", 1366, 59.99);
+    cout << "\nBook 2 details with parameterized constructor:";
+    book2.display();
+
+    return 0;
+}
+
+
+Output:
+Book 1 details with default constructor:
+Book Details:
+Title : Untitled
+Author: Unknown
+Pages : 0
+Price : $0
+
+Book 2 details with parameterized constructor:
+Book Details:
+Title : The C++ Programming Language
+Author: Bjarne Stroustrup
+Pages : 1366
+Price : $59.99
+
