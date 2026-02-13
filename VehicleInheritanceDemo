@@ -1,0 +1,68 @@
+//develop a class hierachy for vehicles start with a base class vehicle having attributes
+// (vehicle_no,vehicle_name) and create derived class 2 wheeler having members vehicle_type as 
+//motorcycle,scooter .define function accepts() and display(). write a main() function to accept 
+//and display details of 2 wheeler in dev c++(single inheritance).
+
+#include<iostream>
+using namespace std;
+
+//base class
+class Vehicle{
+	protected:
+		string vehicle_no;
+		string vehicle_name;
+		
+		public:
+		void accept(){
+			cout<<"Enter vehicle number:"<<endl;
+			getline(cin,vehicle_no);
+			cout<<"Enter vehicle name:"<<endl;
+			getline(cin,vehicle_name);
+		}
+		void display(){
+			cout<<"Vehicle number:"<<vehicle_no<<endl;
+			cout<<"Vehicle name:"<<vehicle_name<<endl;
+			} 
+};
+
+//derived class
+class Twowheeler:public Vehicle{
+	string vehicle_type;//motorcycle,scooter
+	public:
+		void accept(){
+			Vehicle::accept();//1
+			cout<<"enter vehicle type:"<<endl;//2
+			getline(cin,vehicle_type);
+		}
+		void display(){
+			Vehicle::display();
+			cout<<"Vehicle type:"<<vehicle_type<<endl;
+		}
+};
+
+//main function
+int main(){
+	Twowheeler tw;
+	cout<<"enter details for 2 wheeler:"<<endl;
+	tw.accept();//exceute deive class function
+	cout<<"2 wheeler details:"<<endl;
+	tw.display();
+	return 0;
+}
+ 
+
+Output:
+enter details for 2 wheeler:
+Enter vehicle number:
+1
+Enter vehicle name:
+Activa
+enter vehicle type:
+scooter
+2 wheeler details:
+Vehicle number:1
+Vehicle name:Activa
+Vehicle type:scooter
+
+
+
