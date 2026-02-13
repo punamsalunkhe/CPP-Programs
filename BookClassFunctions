@@ -1,0 +1,98 @@
+//write  a program to create book class with data members as follows
+// book_no,book_name,author,edition,price,quantity,bill,discount,netbill
+// calculate bill and apply discount 5% on them also calculate netbill,
+//initialize these data members by the objects of it class in dev c++.
+
+#include <iostream>
+using namespace std;
+
+class Book {
+    // Data Members
+    int book_no;
+    string book_name;
+    string author;
+    int edition;
+    float price;
+    int quantity;
+    float bill;
+    float discount;
+    float netbill;
+
+public:
+    // Default constructor to initialize values
+    Book() {
+        book_no = 0;
+        book_name = "";
+        author = "";
+        edition = 0;
+        price = 0.0;
+        quantity = 0;
+        bill = discount = netbill = 0.0;
+    }
+
+    // Function to accept book details
+    void getData() {
+        cout << "Enter Book Number: ";
+        cin >> book_no;
+        cin.ignore(); // flush buffer
+        cout << "Enter Book Name: ";
+        getline(cin, book_name);
+        cout << "Enter Author Name: ";
+        getline(cin, author);     //getline is use for string on c++
+        cout << "Enter Edition: ";
+        cin >> edition;
+        cout << "Enter Price: ";
+        cin >> price;
+        cout << "Enter Quantity: ";
+        cin >> quantity;
+
+        // Calculate Bill, Discount, Net Bill
+        bill = price * quantity;
+        discount = bill * 0.05;     // 5% discount
+        netbill = bill - discount;
+    }
+
+    // Function to display book details
+    void displayData() {
+        cout << "\n------ Book Details ------" << endl;
+        cout << "Book Number   : " << book_no << endl;
+        cout << "Book Name     : " << book_name << endl;
+        cout << "Author        : " << author << endl;
+        cout << "Edition       : " << edition << endl;
+        cout << "Price         : " << price << endl;
+        cout << "Quantity      : " << quantity << endl;
+        cout << "Total Bill    : " << bill << endl;
+        cout << "Discount (5%) : " << discount << endl;
+        cout << "Net Bill      : " << netbill << endl;
+    }
+};
+
+int main() {
+    Book b1;  // object of Book
+
+    b1.getData();
+    b1.displayData();
+
+    return 0;
+}
+
+
+output:
+
+Enter Book Number: 1
+Enter Book Name: java
+Enter Author Name: balguru swami
+Enter Edition: 4
+Enter Price: 200
+Enter Quantity: 2
+
+------ Book Details ------
+Book Number   : 1
+Book Name     : java
+Author        : balguru swami
+Edition       : 4
+Price         : 200
+Quantity      : 2
+Total Bill    : 400
+Discount (5%) : 20
+Net Bill      : 380
