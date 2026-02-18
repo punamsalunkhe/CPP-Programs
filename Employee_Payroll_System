@@ -1,0 +1,99 @@
+//Employee Payroll System with abstract classes.Select suitable type of inheritance to implement given scenario.
+//Problem statement: Design an employee payroll system .create an abstract class Employee with attributes like
+//name and employee id.Derive concrete classes like Hourly Employee and Salaried Employee.Define abstract methods 
+//for calculating pay in the base class and implement them in the derived classes.
+#include<iostream>
+using namespace std;
+
+class Employee{
+	public:
+	int empId;
+	string empName;
+	
+	//parameterized constructor
+	public:
+		Employee(int empId,string empName){
+			this->empId=empId;
+			this->empName=empName;
+		}
+		
+		virtual double calculatePay()=0;//virtual method
+		
+		virtual void display(){
+			cout<<"Employee id:"<<empId<<endl;
+			cout<<"Employee name:"<<empName<<endl;
+		}
+		
+			
+};
+		class hourlyEmployee:public Employee{
+			public:
+				double hourly_rate;
+				double work_hours;
+				
+				//parameterized constructor
+				public:
+					hourlyEmployee(int empId,string empName,double hourly_rate,double work_hours):Employee(empId,empName){
+						this->hourly_rate=hourly_rate;
+						this->work_hours=work_hours;
+					}
+					
+					double calculatePay() override{
+						return hourly_rate*work_hours;
+					}
+					
+					void display() override{
+						Employee::display();
+							cout<<"Hourly rate:"<<hourly_rate<<endl;
+							cout<<" Worked hours:"<<work_hours<<endl;
+							
+					}
+		};
+		
+		class salariedEmployee:public Employee{
+			public:
+				double salary;
+			
+				
+				//parameterized constructor
+				public:
+					salariedEmployee(int empId,string empName, double salary):Employee( empId, empName){
+						this->salary=salary;
+					}
+					
+					double calculatePay() override{
+						return salary/12;
+					}
+					
+					void display() override{
+						Employee::display();
+							cout<<"Annual salary:"<<salary<<endl;
+							cout<<" calculate pay monthly:"<<calculatePay()<<endl;		
+					}
+		};
+		int main(){
+			hourlyEmployee h1(1,"A",1000,20);
+			salariedEmployee s1(2,"B",50000);
+			
+			cout<<"hourly employee details:"<<endl;
+			h1.display();
+			
+		    cout<<"salaried employee details:"<<endl;
+			s1.display();
+			 
+			 return 0;
+			
+		}
+		
+Output:
+hourly employee details:
+Employee id:1
+Employee name:A
+Hourly rate:1000
+Worked hours:20
+salaried employee details:
+Employee id:2
+Employee name:B
+Annual salary:50000
+calculate pay monthly:4166.67
+		
