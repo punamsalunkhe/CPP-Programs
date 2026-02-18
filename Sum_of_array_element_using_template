@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+// Function template to sum elements of an array
+template <typename T>
+T sumarray(T arr[], int length) {
+    T sum = 0;
+    for (int i = 0; i < length; i++) {
+        sum += arr[i];
+    }
+    return sum;
+}
+
+int main() {
+    // Test with int array
+    int intArr[] = {1, 2, 3, 4, 5};
+    int intLength = sizeof(intArr) / sizeof(intArr[0]);
+    cout << "Sum of int array: " << sumarray(intArr, intLength) << endl;
+
+    // Test with float array
+    float floatArr[] = {1.1f, 2.2f, 3.3f, 4.4f};
+    int floatLength = sizeof(floatArr) / sizeof(floatArr[0]);
+    cout << "Sum of float array: " << sumarray(floatArr, floatLength) << endl;
+
+    // Test with double array
+    double doubleArr[] = {5.5, 4.5, 3.5};
+    int doubleLength = sizeof(doubleArr) / sizeof(doubleArr[0]);
+    cout << "Sum of double array: " << sumarray(doubleArr, doubleLength) << endl;
+
+    return 0;
+}
+Output:
+Sum of int array: 15
+Sum of float array: 11
+Sum of double array: 13.5
