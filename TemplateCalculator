@@ -1,0 +1,71 @@
+#include<iostream>
+using namespace std;
+
+template <typename T>
+class Calculator{
+	private:
+		T num1,num2;
+		public :
+			//constructor
+			Calculator(T a,T b):num1(a),num2(b){
+			}
+			//function to add
+			T add(){
+				return num1+num2;
+			}
+			
+			//function to substract
+			T substract()
+			{
+				return num1-num2;
+			}
+			
+		   //function to multiply
+		   T muliply(){
+		   		return num1*num2;
+		   }
+		   
+		   	
+		   //function to divide
+		   T divide(){
+		   		return num1/num2;
+		   }
+		};
+		int main(){
+			//test with int
+			
+			Calculator<int> intCal(10,5);
+			cout<<"calculation test with int:"<<endl;
+			cout<<"add:"<<intCal.add()<<endl;
+			cout<<"substract:"<<intCal.substract()<<endl;
+			cout<<"muliply:"<<intCal.muliply()<<endl;
+			cout<<"divide:"<<intCal.divide()<<endl;
+			
+			//test with  double
+			Calculator<double> doubleCal(7.5,2.5);
+			cout<<"calculation test with double:"<<endl;
+			cout<<"add:"<<doubleCal.add()<<endl;
+			cout<<"substract:"<<doubleCal.substract()<<endl;
+			cout<<"muliply:"<<doubleCal.muliply()<<endl;
+			cout<<"divide:"<<doubleCal.divide()<<endl;
+			return 0;
+		}
+		
+Output:
+calculation test with int:
+add:15
+substract:5
+muliply:50
+divide:2
+calculation test with double:
+add:10
+substract:5
+muliply:18.75
+divide:3	
+		
+		
+		
+		
+		
+		
+		
