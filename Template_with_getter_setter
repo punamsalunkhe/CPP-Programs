@@ -1,0 +1,45 @@
+#include<iostream>
+using namespace std;
+
+//class template defination
+template<typename T>
+class Box{
+	private:
+		T value;//variable to store any type of data
+		
+	public:
+	//setter
+	void setvalue(T v){
+		value=v;
+	}
+	
+	//getter method
+	T getvalue(){
+		return value;
+		}
+};
+
+int main(){
+	//create a box object for int
+	Box<int> intBox;
+	intBox.setvalue(123);
+	cout<<"Int Value:"<<intBox.getvalue()<<endl;
+	
+		//create a box object for float
+	Box<float> floatBox;
+	floatBox.setvalue(123.24);
+	cout<<"Float Value:"<<floatBox.getvalue()<<endl;
+	
+	//create a box object for float
+	Box<char> charBox;
+	charBox.setvalue('A');
+	cout<<"char Value:"<<charBox.getvalue()<<endl;
+	return 0;
+
+	
+}
+
+Output:
+Int Value:123
+Float Value:123.24
+char Value:A
