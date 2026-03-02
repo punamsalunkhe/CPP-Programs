@@ -1,0 +1,58 @@
+//Array of Objects:-The Array of Objects stores objects. An array of a class type is also known as an array of objects.
+Storing more than one Employee data. Let's assume there is an array of objects for storing employee data emp[3].
+
+Array of objects
+#include <iostream>
+using namespace std;
+class Employee{
+    int id;
+    char name[30];
+    public:
+    void getData(){
+        cout<<"enter id:"<<endl;
+        cin>>id;
+        cout<<"enter name:"<<endl;
+        cin>>name;
+    }
+    
+    void putData(){
+        cout<<id<<" "<<name<<endl;
+    }
+    
+};
+int main() {
+   Employee emp[3];//array of 3 employee objects
+   //user input for employee details
+   for(int i=0;i<3;i++){
+       cout<<"enter details for employee:"<<i+1<<endl;
+       emp[i].getData();
+   }
+   //output of employee details
+   cout<<"\nEmployee Data:\n";
+   for(int i=0;i<3;i++){
+       emp[i].putData();
+   }
+    return 0;
+}
+
+Output:-
+enter details for employee:1
+enter id:
+1
+enter name:
+Manasi
+enter details for employee:2
+enter id:
+2
+enter name:
+Rutuja
+enter details for employee:3
+enter id:
+3
+enter name:
+Sushma
+
+Employee Data:
+1 Manasi
+2 Rutuja
+3 Sushma
